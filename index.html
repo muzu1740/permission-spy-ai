@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090d16">
+    <title>Permission Spy AI | Privacy Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="#" class="brand">
+            <span class="brand-icon">◈</span>
+            Permission<span>Spy</span><small> AI</small>
+        </a>
+        <nav>
+            <a href="#analyzer">Analyzer</a>
+            <a href="#how-it-works">How it works</a>
+        </nav>
+        <span class="status"><i></i> Privacy tools active</span>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="eyebrow">YOUR PRIVACY. YOUR CONTROL.</div>
+            <h1>Know what your apps<br><span>really need.</span></h1>
+            <p>
+                Analyze app permissions, uncover potentially risky combinations,
+                and get clear recommendations to protect your privacy.
+            </p>
+            <a class="primary-link" href="#analyzer">Analyze permissions <span>↘</span></a>
+            <div class="hero-note">DEMO MODE · ANALYZES THE PERMISSIONS YOU SELECT</div>
+        </section>
+
+        <section class="analyzer panel" id="analyzer">
+            <div class="section-heading">
+                <div>
+                    <div class="eyebrow">01 / PERMISSION SCANNER</div>
+                    <h2>Analyze an application</h2>
+                    <p>Select the permissions requested by an app.</p>
+                </div>
+                <span class="scan-icon">⌕</span>
+            </div>
+
+            <label for="appName">Application name</label>
+            <input id="appName" type="text" placeholder="e.g. Photo Editor Pro">
+
+            <div class="permission-heading">
+                <div>
+                    <h3>Requested permissions</h3>
+                    <p>Select all permissions you see in the app.</p>
+                </div>
+                <span id="selectedCount">0 selected</span>
+            </div>
+
+            <div class="permission-grid">
+                <label class="permission-card">
+                    <input type="checkbox" value="location">
+                    <span class="permission-icon">⌖</span>
+                    <span class="permission-info"><b>Location</b><small>Device location</small></span>
+                </label>
+                <label class="permission-card">
+                    <input type="checkbox" value="backgroundLocation">
+                    <span class="permission-icon">◎</span>
+                    <span class="permission-info"><b>Background location</b><small>Location while unused</small></span>
+                </label>
+                <label class="permission-card">
+                    <input type="checkbox" value="camera">
+                    <span class="permission-icon">▣</span>
+                    <span class="permission-info"><b>Camera</b><small>Capture images/video</small></span>
+                </label>
+                <label class="permission-card">
+                    <input type="checkbox" value="microphone">
+                    <span class="permission-icon">♩</span>
+                    <span class="permission-info"><b>Microphone</b><small>Record audio</small></span>
+                </label>
+                <label class="permission-card">
+                    <input type="checkbox" value="contacts">
+                    <span class="permission-icon">♧</span>
+                    <span class="permission-info"><b>Contacts</b><small>Address book</small></span>
+                </label>
+                <label class="permission-card">
+                    <input type="checkbox" value="sms">
+                    <span class="permission-icon">▤</span>
+                    <span class="permission-info"><b>SMS</b><small>Text messages</small></span>
+                </label>
+                <label class="permission-card">
+                    <input type="checkbox" value="photos">
+                    <span class="permission-icon">▧</span>
+                    <span class="permission-info"><b>Photos & files</b><small>Media and storage</small></span>
+                </label>
+                <label class="permission-card">
+                    <input type="checkbox" value="accessibility">
+                    <span class="permission-icon">⌘</span>
+                    <span class="permission-info"><b>Accessibility access</b><small>Assistive device control</small></span>
+                </label>
+            </div>
+
+            <label for="appPurpose">What is this app supposed to do?</label>
+            <select id="appPurpose">
+                <option value="general">General / other app</option>
+                <option value="camera">Camera or photo editor</option>
+                <option value="social">Social media or messaging</option>
+                <option value="navigation">Maps or navigation</option>
+                <option value="banking">Banking or finance</option>
+                <option value="accessibility">Accessibility tool</option>
+            </select>
+
+            <button id="analyzeBtn" class="analyze-button">Analyze Privacy Risks <span>→</span></button>
+            <p class="privacy-note">🔒 This demo analyzes your selections locally in your browser.</p>
+        </section>
+
+        <section id="results" class="results panel" hidden aria-live="polite">
+            <div class="eyebrow">02 / ANALYSIS REPORT</div>
+            <h2 id="reportTitle">Privacy report</h2>
+            <p id="reportSubtitle"></p>
+
+            <div class="score-layout">
+                <div class="score-circle" id="scoreCircle">
+                    <div><strong id="riskScore">0</strong><small>/100</small></div>
+                    <span>RISK SCORE</span>
+                </div>
+                <div class="score-summary">
+                    <span id="riskBadge" class="risk-badge">ANALYZED</span>
+                    <h3 id="riskTitle">Risk assessment</h3>
+                    <p id="riskDescription"></p>
+                    <p class="disclaimer">This is a heuristic estimate, not proof that an app is malicious.</p>
+                </div>
+            </div>
+
+            <h3 class="result-subheading">Permission explanations</h3>
+            <div id="permissionResults" class="permission-results"></div>
+
+            <h3 class="result-subheading">Recommended actions</h3>
+            <ul id="recommendations" class="recommendations"></ul>
+
+            <button id="resetBtn" class="secondary-button">Analyze another app ↻</button>
+        </section>
+
+        <section class="how panel" id="how-it-works">
+            <div class="eyebrow">03 / OUR APPROACH</div>
+            <h2>More awareness. Less guesswork.</h2>
+            <div class="feature-grid">
+                <article><span>01</span><h3>Understand</h3><p>Learn what each permission can access on a device.</p></article>
+                <article><span>02</span><h3>Evaluate</h3><p>Review sensitive permissions and combinations that may need attention.</p></article>
+                <article><span>03</span><h3>Improve</h3><p>Get practical steps to reduce unnecessary access.</p></article>
+            </div>
+        
+<section class="panel" id="policy-analyzer">
+    <div class="eyebrow">04 / PRIVACY POLICY SCANNER</div>
+    <h2>Analyze a Privacy Policy</h2>
+    <p>Paste an app's privacy policy to identify statements that deserve closer review.</p>
+
+    <label for="policyText">Privacy policy text</label>
+    <textarea
+        id="policyText"
+        rows="8"
+        placeholder="Paste the app's privacy policy here..."
+    ></textarea>
+
+    <button id="analyzePolicyBtn" class="analyze-button">
+        Analyze Privacy Policy →
+    </button>
+
+    <div id="policyResults" aria-live="polite"></div>
+    <p class="privacy-note">Policy text is analyzed locally in your browser in this prototype.</p>
+</section>
+
+        </section>
+    </main>
+
+    <footer>
+        <a href="#" class="brand">◈ Permission<span>Spy</span><small> AI</small></a>
+        <p>Privacy starts with understanding.</p>
+        <small>Educational prototype · Not a malware detector</small>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

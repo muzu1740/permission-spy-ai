@@ -1,0 +1,1004 @@
+
+/* ============================================
+   PERMISSION SPY AI
+   Complete responsive stylesheet
+   ============================================ */
+
+/* 1. DESIGN TOKENS */
+
+:root {
+    color-scheme: dark;
+
+    --bg: #080d16;
+    --surface: #101a2a;
+    --surface-2: #0b1321;
+    --surface-3: #152338;
+
+    --border: #293a52;
+    --text: #f1f5fb;
+    --muted: #9eafc5;
+    --accent: #72d6bd;
+    --accent-hover: #8ce8d2;
+
+    --danger: #ff858c;
+    --warning: #f2c46d;
+    --success: #72d6bd;
+
+    --radius: 14px;
+    --shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+
+/* 2. RESET AND BASE */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 28px;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(44, 75, 115, 0.2),
+            transparent 50%
+        ),
+        var(--bg);
+
+    color: var(--text);
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+img,
+svg {
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--text);
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+}
+
+h2 {
+    font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+p {
+    color: var(--muted);
+}
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* 3. MAIN PAGE LAYOUT */
+
+main,
+.main-content,
+.container,
+.wrapper {
+    width: min(1100px, 92%);
+    margin-inline: auto;
+}
+
+section {
+    scroll-margin-top: 24px;
+}
+
+.panel,
+.card,
+.analyzer-card,
+.report-card,
+.verification-section {
+    background: linear-gradient(
+        145deg,
+        rgba(17, 27, 44, 0.97),
+        rgba(11, 19, 33, 0.98)
+    );
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: clamp(18px, 3vw, 30px);
+    margin-block: 22px;
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.subtitle,
+.section-description {
+    max-width: 720px;
+    color: var(--muted);
+}
+
+
+/* 4. HEADER AND NAVIGATION */
+
+header,
+.site-header,
+.navbar {
+    position: relative;
+    z-index: 10;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    width: min(1200px, 94%);
+    margin-inline: auto;
+    padding: 18px 0;
+}
+
+.logo,
+.brand {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text);
+}
+
+nav,
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: center;
+}
+
+nav a,
+.nav-links a {
+    color: var(--muted);
+    transition: color 0.2s ease;
+}
+
+nav a:hover,
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+
+/* 5. HERO SECTION */
+
+.hero,
+.hero-section {
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.hero p,
+.hero-section p {
+    max-width: 650px;
+    margin-inline: auto;
+}
+
+.hero h1 span,
+.highlight {
+    color: var(--accent);
+}
+
+
+/* 6. FORMS AND INPUTS */
+
+label {
+    display: block;
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 650;
+    margin-bottom: 7px;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="email"],
+input[type="search"],
+input[type="number"],
+textarea,
+select {
+    display: block;
+    width: 100%;
+    min-height: 44px;
+
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    color: var(--text);
+    background: #080f1b;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #71839b;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(114, 214, 189, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+/* 7. BUTTONS */
+
+button,
+.button,
+.btn,
+.analyze-button {
+    min-height: 44px;
+    padding: 11px 18px;
+
+    border: 1px solid transparent;
+    border-radius: 9px;
+
+    background: var(--accent);
+    color: #061711;
+
+    font-weight: 750;
+    text-align: center;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+button:hover,
+.button:hover,
+.btn:hover,
+.analyze-button:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+    transform: none;
+}
+
+button.secondary,
+.btn-secondary {
+    background: var(--surface-3);
+    color: var(--text);
+    border-color: var(--border);
+}
+
+button.secondary:hover,
+.btn-secondary:hover {
+    background: #20334b;
+}
+
+
+/* 8. PERMISSION SELECTOR GRID */
+
+.permission-grid,
+.permissions-grid,
+.permissions-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-block: 18px;
+}
+
+.permission-card,
+.permission-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px;
+    min-width: 0;
+
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.permission-card:hover,
+.permission-option:hover {
+    border-color: #52718e;
+}
+
+.permission-card:has(input:checked),
+.permission-option:has(input:checked) {
+    background: rgba(31, 89, 73, 0.28);
+    border-color: var(--accent);
+}
+
+.permission-card input[type="checkbox"],
+.permission-option input[type="checkbox"],
+input.permission-checkbox {
+    accent-color: var(--accent);
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+}
+
+.permission-card label,
+.permission-option label {
+    margin: 0;
+    cursor: pointer;
+}
+
+
+/* 9. SELECTED COUNT AND SMALL TAGS */
+
+#selectedCount,
+.selected-count,
+.result-tag {
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 750;
+}
+
+.result-tag {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 4px 8px;
+
+    border: 1px solid rgba(114, 214, 189, 0.3);
+    border-radius: 999px;
+    background: rgba(114, 214, 189, 0.08);
+}
+
+
+/* 10. RISK SCORE REPORT */
+
+#results {
+    scroll-margin-top: 20px;
+}
+
+#scoreCircle,
+.score-circle {
+    --score-color: var(--accent);
+
+    width: 130px;
+    height: 130px;
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border: 5px solid var(--score-color);
+    border-radius: 50%;
+
+    background: #080f1b;
+    box-shadow: 0 0 24px rgba(114, 214, 189, 0.06);
+}
+
+#riskScore,
+.risk-score {
+    color: var(--text);
+    font-size: 2rem;
+    font-weight: 850;
+    line-height: 1.1;
+}
+
+.score-label {
+    color: var(--muted);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+}
+
+#riskTitle {
+    margin-top: 0;
+}
+
+#riskDescription {
+    max-width: 600px;
+}
+
+#riskBadge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 6px;
+
+    color: var(--warning);
+    background: rgba(242, 196, 109, 0.1);
+
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.risk-overview,
+.risk-panel,
+.score-panel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface-2);
+}
+
+
+/* 11. PERMISSION EXPLANATION CARDS */
+
+#permissionResults,
+#recommendations {
+    margin-top: 14px;
+}
+
+.permission-result,
+.permission-explanation {
+    margin-top: 10px;
+    padding: 15px;
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    background: var(--surface-2);
+}
+
+.permission-result h4,
+.permission-explanation h4 {
+    margin: 0 0 8px;
+}
+
+.permission-result p,
+.permission-explanation p {
+    margin: 7px 0;
+}
+
+#recommendations {
+    padding-left: 22px;
+}
+
+#recommendations li {
+    padding: 5px 0 5px 4px;
+    color: var(--muted);
+}
+
+#recommendations li::marker {
+    color: var(--accent);
+}
+
+
+/* 12. PRIVACY POLICY SCANNER */
+
+#policy-analyzer {
+    margin-block: 30px;
+}
+
+#policy-analyzer h2 {
+    margin-top: 5px;
+}
+
+#policy-analyzer textarea,
+#policyText {
+    width: 100%;
+    min-height: 140px;
+    margin-top: 7px;
+
+    background: #080f1b;
+    color: var(--text);
+}
+
+#analyzePolicyBtn {
+    width: 100%;
+    margin-top: 15px;
+}
+
+#policyResults {
+    margin-top: 22px;
+    overflow-wrap: anywhere;
+}
+
+.policy-results-heading {
+    margin-bottom: 16px;
+}
+
+.policy-finding {
+    margin-top: 12px;
+    padding: 15px;
+
+    background: rgba(8, 16, 29, 0.85);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.policy-finding h4 {
+    margin: 0 0 8px;
+    font-size: 0.98rem;
+}
+
+.policy-finding > p {
+    margin: 8px 0;
+    font-size: 0.88rem;
+}
+
+.policy-summary {
+    padding: 17px;
+    margin-bottom: 16px;
+
+    border: 1px solid rgba(114, 214, 189, 0.35);
+    border-radius: 10px;
+    background: rgba(114, 214, 189, 0.06);
+}
+
+.policy-summary h3 {
+    margin-top: 0;
+}
+
+.policy-summary p:last-child {
+    margin-bottom: 0;
+    font-size: 0.85rem;
+}
+
+
+/* 13. EXACT POLICY EVIDENCE */
+
+.policy-evidence {
+    margin-top: 12px;
+    padding: 12px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: rgba(5, 12, 24, 0.75);
+}
+
+.evidence-quote,
+.policy-evidence blockquote {
+    margin: 8px 0 12px;
+    padding: 8px 0 8px 12px;
+
+    border-left: 3px solid var(--accent);
+    color: var(--text);
+
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+}
+
+.classification-label {
+    margin: 8px 0 4px;
+    color: var(--warning);
+    font-size: 0.85rem;
+    font-weight: 800;
+}
+
+.classification-concern {
+    color: var(--danger);
+}
+
+.classification-protective {
+    color: var(--success);
+}
+
+.classification-informational {
+    color: var(--warning);
+}
+
+.classification-advice {
+    margin: 4px 0;
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+
+/* 14. GENERAL CARDS AND FEATURES */
+
+.features,
+.feature-grid,
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.feature-card,
+.stat-card {
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+}
+
+.feature-card h3 {
+    margin-top: 0;
+}
+
+.feature-card p {
+    margin-bottom: 0;
+}
+
+
+/* 15. LINKS AND SMALL TEXT */
+
+.privacy-note,
+.note,
+small {
+    color: var(--muted);
+    font-size: 0.78rem;
+    line-height: 1.6;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 24px 0;
+}
+
+
+/* 16. FOOTER */
+
+footer,
+.site-footer {
+    padding: 28px 18px;
+    margin-top: 50px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+    color: var(--muted);
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+footer p,
+.site-footer p {
+    margin: 5px 0;
+}
+
+
+/* 17. ANIMATIONS */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.policy-finding,
+.permission-result {
+    animation: fadeUp 0.25s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* 18. TABLET */
+
+@media (max-width: 850px) {
+    .features,
+    .feature-grid,
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .navbar {
+        justify-content: center;
+    }
+
+    nav,
+    .nav-links {
+        justify-content: center;
+    }
+}
+
+
+/* 19. MOBILE */
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    main,
+    .main-content,
+    .container,
+    .wrapper {
+        width: 94%;
+    }
+
+    .panel,
+    .card,
+    .analyzer-card,
+    .report-card,
+    .verification-section {
+        padding: 17px;
+        margin-block: 14px;
+    }
+
+    .permission-grid,
+    .permissions-grid,
+    .permissions-container,
+    .features,
+    .feature-grid,
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .risk-overview,
+    .risk-panel,
+    .score-panel {
+        align-items: flex-start;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    #scoreCircle,
+    .score-circle {
+        width: 105px;
+        height: 105px;
+    }
+
+    #riskScore,
+    .risk-score {
+        font-size: 1.7rem;
+    }
+
+    .hero,
+    .hero-section {
+        min-height: 270px;
+        padding: 45px 12px;
+    }
+
+    nav,
+    .nav-links {
+        gap: 12px;
+        font-size: 0.85rem;
+    }
+
+    button,
+    .button,
+    .btn {
+        max-width: 100%;
+    }
+}
+
+/* Permission Spy AI — layout correction */
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+main,
+.main-content,
+.container,
+.wrapper {
+    width: min(1100px, 92%);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.panel,
+.card,
+.analyzer-card,
+.report-card,
+.verification-section {
+    padding: 26px;
+}
+
+.permission-grid,
+.permissions-grid,
+.permissions-container {
+    gap: 12px;
+}
+
+.permission-card,
+.permission-option {
+    padding: 14px;
+    font-size: 14px;
+}
+
+input,
+textarea,
+select {
+    font-size: 14px;
+}
+
+label {
+    font-size: 14px;
+}
+
+button {
+    font-size: 14px;
+}
+
+@media (max-width: 700px) {
+    .panel,
+    .card,
+    .analyzer-card,
+    .report-card,
+    .verification-section {
+        padding: 18px;
+    }
+}
+
+/* FINAL READABILITY FIX */
+
+body {
+    font-size: 16px !important;
+    line-height: 1.6;
+}
+
+nav a,
+.nav-links a {
+    font-size: 14px !important;
+}
+
+h1 {
+    font-size: clamp(32px, 5vw, 48px) !important;
+}
+
+h2 {
+    font-size: 26px !important;
+}
+
+h3 {
+    font-size: 19px !important;
+}
+
+h4,
+label {
+    font-size: 14px !important;
+}
+
+p,
+.permission-card,
+.permission-option,
+input,
+textarea,
+select {
+    font-size: 14px !important;
+}
+
+button,
+.button,
+.btn {
+    font-size: 14px !important;
+    min-height: 44px;
+}
+
+.eyebrow,
+small,
+.privacy-note {
+    font-size: 12px !important;
+}
+
+.permission-card,
+.permission-option {
+    gap: 10px;
+    padding: 14px;
+}
+
+.hero,
+.hero-section {
+    padding: 65px 20px;
+}
+
+.panel,
+.card,
+.analyzer-card,
+.report-card,
+.verification-section {
+    padding: 24px;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 32px !important;
+    }
+
+    h2 {
+        font-size: 23px !important;
+    }
+
+    .panel,
+    .card,
+    .analyzer-card,
+    .report-card,
+    .verification-section {
+        padding: 17px;
+    }
+}
